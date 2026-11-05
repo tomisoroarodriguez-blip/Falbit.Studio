@@ -61,6 +61,3 @@ Lo siguiente **no está confirmado** y no se inventó. En `npm run dev` se ve ma
 - `prefers-reduced-motion`: sin rotación, sin recorridos, sin scroll suave; el proceso se ve completo.
 - Enlace “Saltar al contenido”, foco visible, objetivos táctiles de 44 px o más.
 
-## Archivo
-
-`_archivo/` guarda el halcón 3D y la sección “Laboratorio” del diseño anterior. No forma parte del build.

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -24,6 +25,7 @@ export function About() {
             }
           />
           <Reveal className="mt-8 max-w-xl space-y-5 text-base leading-relaxed text-ivory-dim sm:text-lg">
+            <Image src="/marca/logo-160.webp" width={160} height={160} alt="Halcón de FALBIT" unoptimized className="size-16 rounded-full opacity-90" />
             <p>
               FALBIT Digital Studio diseña y desarrolla sitios web, tiendas online y sistemas a medida para negocios que quieren crecer en internet.
             </p>
