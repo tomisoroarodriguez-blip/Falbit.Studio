@@ -8,8 +8,8 @@ export const site = {
   url: "https://falbitstudio.com",
   locale: "es_UY",
   contact: {
-    instagram: "", // TODO: usuario de Instagram (sin @)
-    whatsapp: "", // TODO: WhatsApp Business, formato internacional sin "+" (ej. 59899123456)
+    instagram: "falbit.studio",
+    whatsapp: "59892157796", // 092 157 796 (Uruguay)
     email: "", // TODO: correo de recepción
   },
 } as const;

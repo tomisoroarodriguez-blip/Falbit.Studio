@@ -3,7 +3,7 @@ import { site, nav } from "@/data/site";
 import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
-  const { instagram } = site.contact;
+  const { instagram, whatsapp } = site.contact;
   return (
     <footer className="border-t border-champagne/15 bg-carbon">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
@@ -31,6 +31,13 @@ export function Footer() {
                 Formulario de proyecto
               </Link>
             </li>
+            {whatsapp && (
+              <li>
+                <a className="hover:text-champagne" href={`https://wa.me/${whatsapp}`} rel="noopener noreferrer" target="_blank">
+                  WhatsApp
+                </a>
+              </li>
+            )}
             {instagram && (
               <li>
                 <a className="hover:text-champagne" href={`https://instagram.com/${instagram}`} rel="noopener noreferrer" target="_blank">
