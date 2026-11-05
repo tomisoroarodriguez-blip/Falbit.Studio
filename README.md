@@ -48,7 +48,7 @@ Lo siguiente **no está confirmado** y no se inventó. En `npm run dev` se ve ma
 8. **Textos de objetivo / qué se hizo** de cada proyecto: redactados a partir de los README de cada sitio; revisar.
 9. **FAQ:** definir precios o rangos, plazos, entregables (código, dominio, hosting) y planes de mantenimiento.
 10. **Sobre Falbit:** sin años, equipo ni cifras. Agregar solo datos reales.
-11. **Dominio y SEO:** `site.url` y quitar `robots: { index: false }` en `src/app/layout.tsx`; imagen Open Graph.
+11. **Dominio y SEO:** hecho (falbitstudio.com, indexable, imagen Open Graph, robots y sitemap). Falta verificar el sitio en Google Search Console.
 12. **Colores de marca:** contrastar tokens con los archivos originales.
 
 ## Rendimiento y accesibilidad

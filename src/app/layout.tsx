@@ -25,8 +25,10 @@ export const metadata: Metadata = {
     locale: site.locale,
     type: "website",
     siteName: site.name,
+    images: [{ url: "/marca/og.png", width: 1200, height: 630, alt: "FALBIT Digital Studio" }],
   },
-  robots: { index: false, follow: false }, // sitio en desarrollo local: sin indexar hasta publicar
+  twitter: { card: "summary_large_image" },
+  alternates: { canonical: "/" },
 };
 
 export const viewport: Viewport = { themeColor: "#0d0d0d", width: "device-width", initialScale: 1 };

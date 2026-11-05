@@ -5,7 +5,7 @@ export const site = {
   tagline: "Ideas que vuelan más alto",
   description:
     "FALBIT Digital Studio: diseño y desarrollo web, tiendas online, sistemas personalizados y automatizaciones desde Uruguay.",
-  url: "http://localhost:3000", // TODO: dominio real cuando se autorice
+  url: "https://falbitstudio.com",
   locale: "es_UY",
   contact: {
     instagram: "", // TODO: usuario de Instagram (sin @)
