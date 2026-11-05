@@ -39,7 +39,7 @@ Inicio → Qué hacemos → Proyectos destacados → Cómo trabajamos → Sobre 
 Lo siguiente **no está confirmado** y no se inventó. En `npm run dev` se ve marcado en rojo dentro de cada ficha y del FAQ; en producción no se muestra.
 
 1. **Logo oficial del halcón:** `src/components/ui/Logo.tsx` y `src/data/hawk.ts` siguen siendo marcadores provisorios.
-2. **Contacto real:** Instagram y WhatsApp cargados; falta el correo (`site.contact.email`).
+2. **Contacto real:** Instagram y WhatsApp cargados; correo cargado.
 3. **Recepción del formulario:** definir `CONTACT_WEBHOOK_URL` (ver `.env.example`). Sin esa variable `/api/contacto` responde 503 y la web avisa que no se envió. Agregar límite de envíos por persona antes de publicar.
 4. **Autorización de clientes** para mostrar Ossola, Dizainas y Martínez Seguros.
 5. **Ossola:** su sitio aún usa imágenes de demostración; volver a capturar con fotos reales. Listado final de servicios por validar.

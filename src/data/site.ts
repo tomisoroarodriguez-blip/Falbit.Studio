@@ -10,7 +10,7 @@ export const site = {
   contact: {
     instagram: "falbit.studio",
     whatsapp: "59892157796", // 092 157 796 (Uruguay)
-    email: "", // TODO: correo de recepción
+    email: "falbit.studio01@gmail.com",
   },
 } as const;
 
