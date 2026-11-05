@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+/* Tokens de marca FALBIT (valores iniciales; ajustar a los archivos originales) */
+@theme {
+  --color-carbon: #0d0d0d;
+  --color-graphite: #2a2a2a;
+  --color-champagne: #c9a57a;
+  --color-champagne-soft: #e0c9a8;
+  --color-ivory: #f5f5f0;
+  --color-ivory-dim: #b9b9b2;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  background: var(--color-carbon);
+  color-scheme: dark;
+  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-carbon);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-champagne);
+  color: var(--color-carbon);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-champagne);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Líneas finas doradas estilo "mira de precisión" */
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgb(201 165 122 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(201 165 122 / 0.07) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(120deg, #e0c9a8, #c9a57a 45%, #a07f55);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Halcón SVG: trazo que se dibuja y flotación suave (solo CSS, funciona sin JS) */
+.hawk-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: hawk-draw 2.4s var(--ease-premium) 0.2s forwards;
+}
+.hawk-float {
+  animation: hawk-float 7s ease-in-out infinite;
+}
+@keyframes hawk-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes hawk-float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Aparición al hacer scroll (la maneja components/ui/Reveal.tsx) */
+[data-rv] {
+  transition:
+    opacity 1s var(--ease-premium) var(--rv-delay, 0s),
+    transform 1s var(--ease-premium) var(--rv-delay, 0s);
+}
+[data-rv="0"] {
+  opacity: 0;
+  transform: translateY(36px);
+}
+[data-rv="1"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Transición entre páginas (app/template.tsx) */
+.page-in {
+  animation: page-in 0.6s var(--ease-premium) both;
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+/* Entrada del hero en CSS puro: visible desde el HTML, sin esperar a JavaScript */
+.hero-word {
+  animation: hero-word-up 1.2s var(--ease-premium) both;
+  animation-delay: calc(0.35s + var(--i, 0) * 0.09s);
+}
+.hero-fade {
+  animation: hero-fade-up 1s var(--ease-premium) both;
+  animation-delay: 0.9s;
+}
+@keyframes hero-word-up {
+  from {
+    transform: translateY(115%);
+  }
+}
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+/* Íconos de servicio: el trazo se redibuja al hover/foco de la tarjeta */
+.icon-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.group:hover .icon-path,
+.group:focus-within .icon-path {
+  animation: hawk-draw-in 0.9s var(--ease-premium);
+}
+@keyframes hawk-draw-in {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Rediseño ---------- */
+.serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--color-champagne);
+}
+
+/* Hero: capturas reales que rotan con CSS puro (hasta 4 diapositivas x 5 s) */
+.hero-slide {
+  opacity: 0;
+  animation: hero-slide 20s linear infinite both;
+  animation-delay: calc(var(--s, 0) * 5s - 1s);
+}
+.hero-slide[data-first] {
+  opacity: 1;
+}
+@keyframes hero-slide {
+  0% { opacity: 0; }
+  4%, 24% { opacity: 1; }
+  28%, 100% { opacity: 0; }
+}
+section[data-n="2"] .hero-slide {
+  animation-name: hero-slide-2;
+  animation-duration: 10s;
+}
+@keyframes hero-slide-2 {
+  0% { opacity: 0; }
+  6%, 50% { opacity: 1; }
+  56%, 100% { opacity: 0; }
+}
+.hero-orbit {
+  animation: hero-orbit 14s ease-in-out infinite;
+}
+@keyframes hero-orbit {
+  50% { transform: translate3d(0, -12px, 0); }
+}
+
+/* Recorrido de una página real: object-position baja de arriba a abajo */
+.peek img {
+  object-position: 50% 0%;
+  transition: object-position 0.8s var(--ease-premium);
+}
+.peek[data-run="1"] img {
+  object-position: 50% 100%;
+  transition-duration: var(--peek-dur, 9s);
+  transition-timing-function: cubic-bezier(0.45, 0, 0.35, 1);
+}
+@media (hover: hover) {
+  .peek-group:hover .peek img,
+  .peek-group:focus-within .peek img {
+    object-position: 50% 100%;
+    transition-duration: var(--peek-dur, 9s);
+    transition-timing-function: cubic-bezier(0.45, 0, 0.35, 1);
+  }
+}
+
+/* Acordeón: altura animada sin medir en JS */
+.acc {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-premium);
+}
+.acc[data-open="1"] {
+  grid-template-rows: 1fr;
+}
+.acc > div {
+  overflow: hidden;
+}
+
+/* Lista filtrada: entrada escalonada */
+.pop-in {
+  animation: pop-in 0.7s var(--ease-premium) both;
+  animation-delay: calc(var(--i, 0) * 0.08s);
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(22px) scale(0.985); }
+}
+
+/* Proceso: la línea se llena según el paso activo */
+.proc-line {
+  transform-origin: top;
+  transition: transform 0.9s var(--ease-premium);
+}
+
+.dot-ping::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid var(--color-champagne);
+  animation: dot-ping 2.4s ease-out infinite;
+}
+@keyframes dot-ping {
+  to { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { animation: none; opacity: 0; }
+  .hero-slide[data-first] { opacity: 1; }
+  .hero-orbit, .dot-ping::after { animation: none; }
+  .peek img, .peek[data-run="1"] img { transition: none; }
+  html { scroll-behavior: auto; }
+}
