@@ -14,12 +14,8 @@ export function Contact() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_20%_20%,rgb(201_165_122/0.14),transparent_70%)]" />
       <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal>
-          <p className="mb-4 flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.35em] text-champagne">
-            <span className="h-px w-10 bg-champagne" aria-hidden="true" />
-            Contacto
-          </p>
           <h2 id="contacto-titulo" className="text-[clamp(2.2rem,6vw,4.4rem)] font-semibold uppercase leading-[1.02] tracking-tight">
-            Tu próxima gran idea <span className="text-gold-gradient">empieza acá</span>
+            Tu próxima gran idea <span className="serif-accent">empieza acá</span>
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-ivory-dim sm:text-lg">
             Contanos qué querés lograr, aunque sea una idea a medio armar. Estudiamos tu caso y te respondemos con una propuesta clara.

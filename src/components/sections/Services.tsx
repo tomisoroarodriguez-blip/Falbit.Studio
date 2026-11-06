@@ -40,10 +40,7 @@ export function Services() {
                     onClick={() => setOpen(isOpen ? "" : s.id)}
                     className="group flex min-h-20 w-full items-center gap-5 py-5 text-left sm:gap-8"
                   >
-                    <span className={`w-8 shrink-0 text-xs font-semibold tracking-[0.25em] transition-colors ${isOpen ? "text-champagne" : "text-ivory-dim"}`}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span
+                                        <span
                       className={`flex-1 text-[clamp(1.35rem,3.4vw,2.4rem)] font-semibold uppercase leading-tight tracking-tight transition-[color,transform] duration-500 ease-premium group-hover:translate-x-1 ${
                         isOpen ? "text-ivory" : "text-ivory-dim group-hover:text-ivory"
                       }`}
@@ -63,7 +60,7 @@ export function Services() {
                 </h3>
                 <div id={panel} role="region" aria-label={s.title} className="acc" data-open={isOpen ? "1" : "0"} inert={!isOpen}>
                   <div>
-                    <div className="grid gap-8 pb-10 pl-0 sm:pl-[3.25rem] md:grid-cols-2 md:gap-14 lg:pl-[4.25rem]">
+                    <div className="grid gap-8 pb-10 md:grid-cols-2 md:gap-14">
                       <div className="space-y-6">
                         <div>
                           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-champagne">Cuando necesitás</p>

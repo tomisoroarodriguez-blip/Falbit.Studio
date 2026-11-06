@@ -94,7 +94,7 @@ export function Header() {
           <Logo />
         </Link>
 
-        <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Principal" className="hidden items-center gap-8 xl:flex">
           {nav.map((l) => (
             <Link
               key={l.id}
@@ -116,7 +116,7 @@ export function Header() {
 
         <button
           type="button"
-          className="relative flex size-12 items-center justify-center lg:hidden"
+          className="relative flex size-12 items-center justify-center xl:hidden"
           aria-expanded={open}
           aria-controls="menu-movil"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -127,7 +127,7 @@ export function Header() {
         </button>
       </div>
 
-      <div id="menu-movil" hidden={!open} className="max-h-[calc(100svh-72px)] overflow-y-auto border-t border-champagne/15 bg-carbon lg:hidden">
+      <div id="menu-movil" hidden={!open} className="max-h-[calc(100svh-72px)] overflow-y-auto border-t border-champagne/15 bg-carbon xl:hidden">
         <nav aria-label="Móvil" className="mx-auto flex max-w-7xl flex-col px-5 py-6 sm:px-8">
           {nav.map((l) => (
             <Link key={l.id} href={l.href} onClick={() => setOpen(false)} className={`border-b border-graphite py-4 text-xl font-medium ${current === l.id ? "text-champagne" : ""}`}>

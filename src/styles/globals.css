@@ -268,3 +268,74 @@ section[data-n="2"] .hero-slide {
   .peek img, .peek[data-run="1"] img { transition: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- Referencia de movimiento: intro, titular en capas ---------- */
+.intro {
+  display: none;
+}
+.intro-pending .intro {
+  display: flex;
+  animation: intro-out 0.7s var(--ease-premium) 1.2s forwards;
+}
+.intro-core {
+  animation: intro-core-in 0.9s var(--ease-premium) both;
+}
+.intro-line {
+  transform-origin: left;
+  animation: intro-line 1.1s var(--ease-premium) 0.3s both;
+}
+@keyframes intro-out {
+  to { opacity: 0; transform: translateY(-3%); visibility: hidden; }
+}
+@keyframes intro-core-in {
+  from { opacity: 0; transform: translateY(18px); }
+}
+@keyframes intro-line {
+  from { transform: scaleX(0); }
+}
+/* Mientras corre la intro, el titular espera */
+@media (prefers-reduced-motion: no-preference) {
+  .intro-pending:not([data-intro-done]) .hero-word {
+    animation-delay: calc(1.45s + var(--i, 0) * 0.09s);
+  }
+  .intro-pending:not([data-intro-done]) .hero-fade {
+    animation-delay: 2.1s !important;
+  }
+}
+
+/* Titular: dos capas de contorno que se superponen sobre la palabra al entrar */
+.layered {
+  position: relative;
+}
+.layered::before,
+.layered::after {
+  content: attr(data-t) / "";
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(201 165 122 / 0.6);
+  pointer-events: none;
+  animation: layer-in 1.5s var(--ease-premium) both;
+  animation-delay: calc(0.35s + var(--i, 0) * 0.09s);
+}
+.layered::before {
+  --dx: -0.12em;
+}
+.layered::after {
+  --dx: 0.12em;
+  animation-delay: calc(0.45s + var(--i, 0) * 0.09s);
+}
+.intro-pending:not([data-intro-done]) .layered::before {
+  animation-delay: calc(1.45s + var(--i, 0) * 0.09s);
+}
+.intro-pending:not([data-intro-done]) .layered::after {
+  animation-delay: calc(1.55s + var(--i, 0) * 0.09s);
+}
+@keyframes layer-in {
+  from { transform: translateX(var(--dx)); opacity: 0.9; }
+  to { transform: translateX(0); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro { display: none !important; }
+  .layered::before, .layered::after { display: none; }
+}

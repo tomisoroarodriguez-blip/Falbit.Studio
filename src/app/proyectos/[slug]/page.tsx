@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
         </header>
 
         {project.publicNote && (
-          <p className="mt-8 max-w-2xl border-l-2 border-champagne pl-4 text-sm leading-relaxed text-ivory-dim">{project.publicNote}</p>
+          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-ivory-dim">{project.publicNote}</p>
         )}
 
         {/* Capturas reales: escritorio recorrible + móvil */}

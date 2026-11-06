@@ -11,7 +11,7 @@ export function Hero() {
   const phone = projects.find((p) => p.slug === "dizainas")!;
 
   return (
-    <section aria-labelledby="hero-titulo" data-n={slides.length} className="relative isolate overflow-hidden px-5 pb-16 pt-28 sm:px-8 lg:pb-24 lg:pt-36">
+    <section id="inicio" aria-labelledby="hero-titulo" data-n={slides.length} className="relative isolate overflow-hidden px-5 pb-16 pt-28 sm:px-8 lg:pb-24 lg:pt-36">
       <div aria-hidden="true" className="grid-lines absolute inset-0 -z-20 [mask-image:radial-gradient(70%_70%_at_30%_30%,#000,transparent_75%)]" />
       <div aria-hidden="true" className="absolute -right-24 top-10 -z-10 w-[min(70vw,640px)] opacity-[0.18] hero-orbit">
         <Image src="/marca/logo-900.webp" width={900} height={900} alt="" unoptimized className="h-auto w-full rounded-full [mask-image:radial-gradient(circle,#000_55%,transparent_72%)]" />
@@ -26,19 +26,19 @@ export function Hero() {
           <h1 id="hero-titulo" className="text-[clamp(2.6rem,7.2vw,5.6rem)] font-semibold uppercase leading-[1] tracking-tight">
             {words.map((w, i) => (
               <span key={w} className="mr-[0.25em] inline-block overflow-hidden align-bottom">
-                <span className="hero-word inline-block" style={{ ["--i" as string]: i }}>
+                <span className="hero-word layered inline-block" data-t={w} style={{ ["--i" as string]: i }}>
                   {w}
                 </span>
               </span>
             ))}
             <span className="block overflow-hidden pb-[0.12em]">
-              <span className="hero-word serif-accent inline-block text-[1.12em] leading-[1]" style={{ ["--i" as string]: 3 }}>
+              <span className="hero-word layered serif-accent inline-block text-[1.12em] leading-[1]" data-t="más alto" style={{ ["--i" as string]: 3 }}>
                 más alto
               </span>
             </span>
           </h1>
           <p className="hero-fade mt-7 max-w-md text-base leading-relaxed text-ivory-dim sm:text-lg">
-            Transformamos ideas en experiencias digitales que impulsan negocios. Sitios web, tiendas online y sistemas a medida, hechos con cuidado.
+            Transformamos ideas en experiencias digitales que impulsan negocios. Webs que te traen consultas por WhatsApp y que manejás vos solo.
           </p>
           <div className="hero-fade mt-9 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "1.05s" }}>
             <ButtonLink href="/#proyectos">

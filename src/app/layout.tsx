@@ -4,6 +4,7 @@ import { site } from "@/data/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { SectionNav } from "@/components/layout/SectionNav";
 import { MagneticCursor } from "@/components/layout/MagneticCursor";
 import "@/styles/globals.css";
 
@@ -35,7 +36,14 @@ export const viewport: Viewport = { themeColor: "#0d0d0d", width: "device-width"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${montserrat.variable} ${instrument.variable}`}>
+    <html lang="es" suppressHydrationWarning className={`${montserrat.variable} ${instrument.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(!sessionStorage.getItem("fb-intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro-pending")}catch(e){}`,
+          }}
+        />
+      </head>
       <body>
         <a
           href="#contenido"
@@ -46,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll />
         <MagneticCursor />
         <Header />
+        <SectionNav />
         <main id="contenido">{children}</main>
         <Footer />
       </body>

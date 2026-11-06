@@ -37,9 +37,8 @@ export function About() {
         </div>
 
         <Reveal as="ul" stagger className="self-end border-t border-graphite">
-          {pillars.map((p, i) => (
+          {pillars.map((p) => (
             <li key={p.t} className="group flex gap-6 border-b border-graphite py-7">
-              <span className="pt-1 text-xs font-semibold tracking-[0.25em] text-champagne">{String(i + 1).padStart(2, "0")}</span>
               <div>
                 <h3 className="text-xl font-semibold uppercase tracking-tight transition-colors group-hover:text-champagne">{p.t}</h3>
                 <p className="mt-2 max-w-sm text-base leading-relaxed text-ivory-dim">{p.d}</p>

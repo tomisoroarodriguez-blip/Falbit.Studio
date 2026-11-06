@@ -18,6 +18,7 @@ export const site = {
 export const nav = [
   { id: "servicios", href: "/#servicios", label: "Qué hacemos" },
   { id: "proyectos", href: "/#proyectos", label: "Proyectos" },
+  { id: "paquetes", href: "/#paquetes", label: "Paquetes" },
   { id: "proceso", href: "/#proceso", label: "Cómo trabajamos" },
   { id: "sobre", href: "/#sobre", label: "Sobre Falbit" },
   { id: "faq", href: "/#faq", label: "Preguntas" },
